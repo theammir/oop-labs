@@ -13,16 +13,16 @@ SecondDialog::SecondDialog(QWidget *parent) : QDialog(parent) {
   vbox->addWidget(label);
 
   auto *hbox = new QHBoxLayout();
-  auto *btnBack = new QPushButton("< Назад", this);
-  auto *btnYes = new QPushButton("Так", this);
-  auto *btnCancel = new QPushButton("Відміна", this);
+  auto *btn_back = new QPushButton("< Назад", this);
+  auto *btn_yes = new QPushButton("Так", this);
+  auto *btn_cancel = new QPushButton("Відміна", this);
   hbox->addStretch();
-  hbox->addWidget(btnBack);
-  hbox->addWidget(btnYes);
-  hbox->addWidget(btnCancel);
+  hbox->addWidget(btn_back);
+  hbox->addWidget(btn_yes);
+  hbox->addWidget(btn_cancel);
   vbox->addLayout(hbox);
 
-  connect(btnBack, &QPushButton::clicked, this, [this]() { done(kBackCode); });
-  connect(btnYes, &QPushButton::clicked, this, &QDialog::accept);
-  connect(btnCancel, &QPushButton::clicked, this, &QDialog::reject);
+  connect(btn_back, &QPushButton::clicked, this, [this]() { done(kBackCode); });
+  connect(btn_yes, &QPushButton::clicked, this, &QDialog::accept);
+  connect(btn_cancel, &QPushButton::clicked, this, &QDialog::reject);
 }

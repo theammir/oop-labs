@@ -11,13 +11,13 @@ FirstDialog::FirstDialog(QWidget *parent) : QDialog(parent) {
   vbox->addWidget(label);
 
   auto *hbox = new QHBoxLayout();
-  auto *btnNext = new QPushButton("Далі >", this);
-  auto *btnCancel = new QPushButton("Відміна", this);
+  auto *btn_next = new QPushButton("Далі >", this);
+  auto *btn_cancel = new QPushButton("Відміна", this);
   hbox->addStretch();
-  hbox->addWidget(btnNext);
-  hbox->addWidget(btnCancel);
+  hbox->addWidget(btn_next);
+  hbox->addWidget(btn_cancel);
   vbox->addLayout(hbox);
 
-  connect(btnNext, &QPushButton::clicked, this, &QDialog::accept);
-  connect(btnCancel, &QPushButton::clicked, this, &QDialog::reject);
+  connect(btn_next, &QPushButton::clicked, this, &QDialog::accept);
+  connect(btn_cancel, &QPushButton::clicked, this, &QDialog::reject);
 }

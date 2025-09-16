@@ -2,9 +2,8 @@
 #include "action1_diag1.h"
 #include "action1_diag2.h"
 
-#include <QHBoxLayout>
-#include <QVBoxLayout>
 #include <qapplication.h>
+#include <qboxlayout.h>
 #include <qdialog.h>
 #include <qlabel.h>
 #include <qpointer.h>
@@ -32,5 +31,5 @@ static auto run(QWidget *parent) -> bool {
 
 void action1_callback(bool checked) {
   QPointer<QWidget> parent = QApplication::activeWindow();
-  (void)run(parent.data());
+  run(parent.data());
 }

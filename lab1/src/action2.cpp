@@ -1,8 +1,7 @@
 #include "action2.h"
 
-#include <QHBoxLayout>
-#include <QVBoxLayout>
 #include <qapplication.h>
+#include <qboxlayout.h>
 #include <qdialog.h>
 #include <qkeysequence.h>
 #include <qlabel.h>
@@ -46,10 +45,11 @@ public:
     connect(btn_cancel, &QPushButton::clicked, this, &QDialog::reject);
   }
 
-  QString selectedGroup() const {
-    if (auto *item = list->currentItem())
+  auto selectedGroup() const -> QString {
+    if (auto *item = list->currentItem()) {
       return item->text();
-    return {};
+    }
+    return "";
   }
 
 private:
@@ -57,7 +57,7 @@ private:
   QPushButton *btn_yes = nullptr;
 };
 
-auto action2_callback(bool) -> QString {
+auto action2_callback(bool checked) -> QString {
   QPointer<QWidget> mainWin = QApplication::activeWindow();
 
   GroupListDialog dlg(mainWin.data());
