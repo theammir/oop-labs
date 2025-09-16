@@ -1,0 +1,92 @@
+%! TeX program = lualatex
+\documentclass[a4paper,14pt]{extarticle}
+\usepackage[left=2.5cm,right=1.5cm,
+		top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{fontspec}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\setmainfont{FreeSerif}
+\setmonofont{FiraCode}
+\usepackage[english,ukrainian]{babel}
+\usepackage[position=bottom]{caption}
+
+\usepackage{minted}
+\setminted{style=arduino}
+\setminted{mathescape}
+
+\usepackage{caption}
+\captionsetup[listing]{name=Файл}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+\setlength{\headheight}{17pt}
+\renewcommand{\headrulewidth}{0pt}
+
+\setcounter{secnumdepth}0
+
+\newcommand{\shell}[2][build/temp.tex]{%
+	\immediate\write18{#2 > #1}%
+	\CatchFileDef{\out}{#1}{\endlinechar=13}%
+}
+
+\newcommand{\codefile}[2]{%
+	\begin{center}
+		\inputminted[tabsize=2, breaklines, fontsize=\small]{#1}{\basedir/\thelabid/#2}
+		\captionof{listing}{\detokenize{#2}}
+	\end{center}
+}
+
+\newcommand{\thetitlepage}[4]{
+	\def\thelabno{#1}
+	\def\thelabid{\thelabno}
+	\def\thestudentno{#4}
+	
+	\begin{titlepage}
+	\begin{center}
+		\vspace{1cm}
+		\textbf{Міністерство освіти і науки України\\
+		Національний технічний університет України\\
+		<<Київський політехнічний інститут імені Ігоря Сікорського>>\\
+		Факультет інформатики та обчислювальної техніки\\
+		Кафедра обчислювальної техніки\\}
+		\vspace*{5cm}
+		\textbf{Лабораторна робота №#1\\}
+		\vspace{0.5cm}
+		з дисціпліни\\
+		<<Об'єктно-орієнтоване програмування>>
+		\vspace*{7cm}
+		
+		\begin{tabular}{ll}
+		\begin{minipage}[t]{0.54\linewidth}
+			Виконав:\\
+			студент групи #2\\
+			#3\\
+			номер у списку групи: \thestudentno\par
+		\end{minipage}
+		&
+		\begin{minipage}[t]{0.3\linewidth}
+			Перевірив:\\
+			Порєв В.~М.
+		\end{minipage}
+		\end{tabular}
+
+		\vfill
+		Київ \the\year\\
+	\end{center}
+	\end{titlepage}
+	\setcounter{page}2
+}
+
+\newcommand{\taskdesc}{\section*{Завдання}}
+
+\newcommand{\taskspec}{\section{Варіант \thestudentno}}
+
+\newcommand{\codetext}{\section{Текст програм}}
+
+\newcommand{\tasktest}{\section{Результати тестування програми}}
+
+\newcommand{\conclusion}{\section{Висновок}}
+
+% vim: ts=2: sw=2

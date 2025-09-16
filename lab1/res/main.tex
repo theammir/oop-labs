@@ -1,0 +1,72 @@
+%! TeX program = lualatex
+%! TeX root = main.tex
+
+\def\basedir{/home/theammir/labs/oop}
+\input{/home/theammir/labs/oop/template/template.tex}
+
+\usepackage{graphicx}
+
+\begin{document}
+\thetitlepage{1}{ІМ-42}{Туров Андрій Володимирович}{26}
+\def\thelabid{lab1}
+
+\taskspec%
+Завдання 2 + 3:
+\begin{enumerate}
+	\setcounter{enumi}{1}
+	\item Два вікна діалогу. Спочатку з’являється перше, яке має дві кнопки: [Далі >]
+		і [Відміна]. Якщо натиснути кнопку [Далі >], то воно закриється і з’явиться
+		друге діалогове вікно, яке має кнопки: [< Назад], [Так] і [Відміна]. Якщо натиснути
+		кнопку [<Назад], вікно закриється і перехід до першого вікна.
+	\item Вікно діалогу з елементом списку (List Box) та двома кнопками: [Так] і
+		[Відміна]. У список автоматично записуються назви груп нашого факультету. Якщо
+		вибрати потрібний рядок списку і натиснути [Так], то у головному вікні повинен
+		відображатися текст вибраного рядка списку.
+\end{enumerate}
+
+\codetext%
+\codefile{cpp}{src/main.cpp}
+\codefile{cpp}{src/action1_diag1.h}
+\codefile{cpp}{src/action1_diag1.cpp}
+\codefile{cpp}{src/action1_diag2.h}
+\codefile{cpp}{src/action1_diag2.cpp}
+\codefile{cpp}{src/action1.h}
+\codefile{cpp}{src/action1.cpp}
+\codefile{cpp}{src/action2.h}
+\codefile{cpp}{src/action2.cpp}
+\codefile{cmake}{CMakeLists.txt}
+
+\section{Зображення}
+
+\begin{figure}[ht!]
+  \center\includegraphics[width=0.7\linewidth]{include_diagram.png}
+	\caption{\#include-ієрархія}
+\end{figure}
+\begin{figure}[p]
+  \center\includegraphics[width=0.7\linewidth]{action1_diag1.png}
+	\caption{Робота 1: Перший діалог}
+\end{figure}
+\begin{figure}[p]
+  \center\includegraphics[width=0.7\linewidth]{action1_diag2.png}
+	\caption{Робота 1: Другий діалог}
+\end{figure}
+\begin{figure}[p]
+  \center\includegraphics[width=0.7\linewidth]{action2_diag.png}
+	\caption{Робота 2: Діалог}
+\end{figure}
+\begin{figure}[pt]
+  \center\includegraphics[width=0.7\linewidth]{action2_result.png}
+	\caption{Робота 2: Результат}
+\end{figure}
+
+\pagebreak
+
+\conclusion%
+Написав графічний застосунок за допомогою фреймворку Qt6.
+Розділив логіку виконання роботи на модулі так, що кожен модуль містить певну
+логіку відображення одного діалогового вікна (або групи вікон). Водночас,
+переконався, щоб дерево залежностей було направлене строго у напрямку до
+головного виконуваного файлу.
+\end{document}
+
+% vim: ts=2: sw=2

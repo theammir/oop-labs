@@ -1,0 +1,12 @@
+CompileFlags:
+  CompilationDatabase: build
+  Remove:
+    - -mno-direct-extern-access
+
+Diagnostics:
+  ClangTidy:
+    Add: [modernize-*, readability-*, performance-*]
+    Remove: [readability-magic-numbers]
+
+InlayHints:
+  Enabled: Yes
