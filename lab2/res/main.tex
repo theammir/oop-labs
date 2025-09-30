@@ -1,0 +1,64 @@
+%! TeX program = lualatex
+%! TeX root = main.tex
+
+\def\basedir{/home/theammir/labs/oop}
+\input{/home/theammir/labs/oop/template/template.tex}
+
+\usepackage{graphicx}
+
+\begin{document}
+\thetitlepage{2}{ІМ-42}{Туров Андрій Володимирович}{26}
+\def\thelabid{lab2}
+
+\taskspec%
+Варіант Ж = 26:
+\begin{enumerate}
+	\item Статичний масив \texttt{*shapes[126]}.
+	\item Слід --- суцільна лінія синього кольору.
+	\item Увід прямокутника --- від кута до кута.
+	\item Прямокутник --- блакитний, з чорним контуром.
+	\item Увід еліпса --- від центру до кута прямокутника.
+	\item Еліпс --- білий, з чорним контуром.
+	\item В меню має позначатись поточний об'єкт, що вводиться.
+\end{enumerate}
+  
+
+\codetext%
+\codefile{cpp}{src/main.cpp}
+\codefile{cpp}{src/canvas.h}
+\codefile{cpp}{src/canvas.cpp}
+\codefile{cpp}{src/editor.h}
+\codefile{cpp}{src/editor.cpp}
+\codefile{cpp}{src/shape.h}
+\codefile{cpp}{src/shape.cpp}
+\codefile{cmake}{CMakeLists.txt}
+
+\section{Зображення}
+
+\begin{figure}[h!]
+  \center\includegraphics[width=0.8\linewidth]{class_diagram.png}
+	\caption{Класова діаграма}
+\end{figure}
+\begin{figure}[p]
+  \center\includegraphics[width=0.7\linewidth]{preview.png}
+	\caption{<<Гумовий>> слід}
+\end{figure}
+\begin{figure}[p]
+  \center\includegraphics[width=0.7\linewidth]{ellipse.png}
+	\caption{Увід еліпса від центра до кута}
+\end{figure}
+\begin{figure}[t]
+  \center\includegraphics[width=0.7\linewidth]{overlapping.png}
+	\caption{Накладання різних фігур}
+\end{figure}
+
+\pagebreak
+
+\conclusion%
+Реалізував застосунок для малювання геометричних примітивів.
+Створив ієрархію класів, де існує кілька конкретних реалізацій для різних
+фігур, і відповідний метод відображення викликається поліморфно.
+Зобразив діаграму класів.
+\end{document}
+
+% vim: ts=2: sw=2
